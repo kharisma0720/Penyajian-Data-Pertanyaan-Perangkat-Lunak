@@ -14,23 +14,88 @@ body.dark{--bg:#111827;--panel:#1b2536;--text:#f1f5f9;--muted:#aab6c8;--line:#33
 @media(max-width:900px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:1fr}.controls{grid-template-columns:1fr 1fr}.controls .field:first-child{grid-column:1/-1}}
 @media(max-width:540px){.wrap{padding:14px 12px 32px}.hero{padding:23px 19px;border-radius:18px}.metrics{gap:9px}.metric{padding:14px}.metric strong{font-size:25px}.topbar{align-items:flex-start;flex-direction:column}.controls{grid-template-columns:1fr}.controls .field:first-child{grid-column:auto}.panel{padding:14px}}
 @media print{body{background:white;color:#111}.topbar .actions,.controls,.pages,.hero button{display:none}.wrap{max-width:none;padding:0}.hero{background:#eee;color:#111;box-shadow:none}.hero p{color:#333}.metric,.panel{box-shadow:none;break-inside:avoid}}
+.dg-no{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:var(--soft);padding:3px 8px;border-radius:6px;margin-bottom:8px}
+.concl{border-left:4px solid var(--accent2);background:var(--soft);border-radius:0 12px 12px 0;padding:12px 14px;font-size:13px;line-height:1.65;margin-top:16px}
+.concl>strong:first-child{color:var(--accent)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.grid2>.panel{display:flex;flex-direction:column}.grid2>.panel .concl{margin-top:auto}.grid2>.panel .sub{margin-bottom:14px}
+.plain td:nth-child(1){width:auto;min-width:190px;color:var(--text)}.plain td:nth-child(2),.plain td:nth-child(3){min-width:0}
+.hm table{min-width:640px}.plain td.c,.plain th.c{text-align:center;font-variant-numeric:tabular-nums}.plain td.c{font-weight:700}
+.legend-inline{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:0 0 12px}
+.sw{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:6px;vertical-align:-1px}
+.donut-wrap{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:6px}.donut-wrap svg{flex:0 0 auto;width:190px;max-width:100%}
+.legend{flex:1;min-width:190px;font-size:12px}.legend div{display:flex;justify-content:space-between;gap:10px;margin:8px 0}.legend span:first-child{overflow:hidden;text-overflow:ellipsis}
+.waffle-wrap{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.waffle{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;width:240px;max-width:100%}.waffle i{aspect-ratio:1;border-radius:4px;display:block}
+.cloud{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:center;padding:10px 0}
+.cloud span{font-weight:800;line-height:1.15;cursor:default;color:var(--accent)}.cloud span:nth-child(3n+2){color:var(--accent2)}.cloud span:nth-child(3n){color:var(--text)}
+.stack{display:flex;height:26px;border-radius:99px;overflow:hidden;background:var(--line);font-size:11px;font-weight:800;color:#fff}
+.stack span{display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.lang-row{margin:16px 0}.lang-row>strong{display:block;font-size:13px;margin-bottom:7px}
+.lens-note{font-size:11px;color:var(--muted);margin-left:4px}
+.audit-list{font-size:13px;line-height:1.7;margin:14px 0 0;padding-left:18px;color:var(--text)}
+.dup-wrap{max-height:380px}
+.flash-controls{display:grid;grid-template-columns:1.2fr 1fr auto auto;gap:9px;margin:14px 0}
+.flashcard{min-height:230px;border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--bg);cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:14px;text-align:center;transition:.2s;outline:none}
+.flashcard:hover,.flashcard:focus{border-color:var(--accent)}.flashcard.back{background:var(--soft)}
+.fl-meta{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.fl-text{font-size:18px;line-height:1.6;font-weight:600}.fl-text.q{font-size:20px}.fl-hint,.fl-tag{font-size:12px;color:var(--muted)}.fl-tag{font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.flash-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.btn-ok{background:#26b99a;border-color:#26b99a;color:#fff}.btn-no{background:#f59e0b;border-color:#f59e0b;color:#fff}
+.flash-stats{margin-top:14px;font-size:12px;color:var(--muted)}.progress{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:7px}.progress>div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:.25s}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}.flash-controls{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.flash-controls{grid-template-columns:1fr}.fl-text.q{font-size:17px}.flashcard{padding:18px}}
+@media print{.flash-controls,.flash-nav{display:none}.concl{background:#f2f2f2;break-inside:avoid}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="topbar"><div class="brand">DATA<span style="color:var(--accent)">LAB</span> / Perangkat Lunak</div><div class="actions"><button id="themeBtn" type="button">☾ Mode gelap</button><button onclick="window.print()" type="button">⎙ Cetak / PDF</button><button id="csvBtn" type="button">↓ Ekspor CSV</button></div></div>
-  <header class="hero"><div class="eyebrow">Dashboard interaktif • Analisis data</div><h1>Penyajian Data<br>Pertanyaan Perangkat Lunak</h1><p>Jelajahi ringkasan data, distribusi kategori, tingkat kesulitan, dan seluruh data mentah. Gunakan pencarian serta filter untuk menemukan pertanyaan tertentu.</p></header>
+  <header class="hero"><div class="eyebrow">Dashboard interaktif • Analisis data</div><h1>Penyajian Data<br>Pertanyaan Perangkat Lunak</h1><p>Jelajahi ringkasan data, distribusi kategori, tingkat kesulitan, analisis lanjutan, audit kualitas data, mode flashcard, dan seluruh data mentah. Gunakan pencarian serta filter untuk menemukan pertanyaan tertentu.</p></header>
   <section class="metrics" id="metrics"></section>
   <section class="layout section">
-    <div class="panel"><h2>Frekuensi berdasarkan kategori</h2><p class="sub">Jumlah pertanyaan pada setiap kategori, diurutkan dari yang terbanyak.</p><div id="categoryChart"></div><div class="note">Grafik menampilkan 10 kategori teratas agar lebih mudah dibaca. Tabel frekuensi lengkap tersedia di bawah.</div></div>
-    <div class="panel"><h2>Distribusi tingkat kesulitan</h2><p class="sub">Perbandingan jumlah pertanyaan mudah, menengah, dan sulit.</p><div id="difficultyChart"></div><div class="insight" id="insight"></div></div>
+    <div class="panel"><div class="dg-no">Diagram 1</div><h2>Frekuensi berdasarkan kategori</h2><p class="sub">Jumlah pertanyaan pada setiap kategori, diurutkan dari yang terbanyak.</p><div id="categoryChart"></div><div class="note">Grafik menampilkan 10 kategori teratas agar lebih mudah dibaca. Tabel frekuensi lengkap tersedia di bawah.</div><div class="concl" id="c1"></div></div>
+    <div class="panel"><div class="dg-no">Diagram 2</div><h2>Distribusi tingkat kesulitan</h2><p class="sub">Perbandingan jumlah pertanyaan mudah, menengah, dan sulit.</p><div id="difficultyChart"></div><div class="concl" id="insight"></div></div>
   </section>
-  <section class="panel section category-table"><div class="section-head"><div><h2>Tabel frekuensi kategori</h2><p class="sub">Jumlah dan persentase dari seluruh data.</p></div></div><div class="table-wrap"><table><thead><tr><th>Kategori</th><th>Frekuensi</th><th>Persentase</th></tr></thead><tbody id="categoryTable"></tbody></table></div></section>
+  <section class="panel section category-table"><div class="section-head"><div><div class="dg-no">Tabel 1</div><h2>Tabel frekuensi kategori</h2><p class="sub">Jumlah dan persentase dari seluruh data.</p></div></div><div class="table-wrap"><table><thead><tr><th>Kategori</th><th>Frekuensi</th><th>Persentase</th></tr></thead><tbody id="categoryTable"></tbody></table></div><div class="concl" id="c2"></div></section>
+    <section class="panel section hm"><div class="dg-no">Diagram 3</div><h2>Peta panas: kategori × tingkat kesulitan</h2><p class="sub">Jumlah pertanyaan pada setiap pertemuan kategori dan tingkat kesulitan. Warna makin pekat berarti porsi di kategori itu makin besar.</p>
+    <div class="legend-inline"><span><i class="sw" style="background:#26b99a"></i>Mudah</span><span><i class="sw" style="background:#7566ed"></i>Menengah</span><span><i class="sw" style="background:#f59e0b"></i>Sulit</span></div>
+    <div class="table-wrap"><table class="plain"><thead><tr><th>Kategori</th><th class="c">Mudah</th><th class="c">Menengah</th><th class="c">Sulit</th><th class="c">Total</th><th class="c">% Sulit</th></tr></thead><tbody id="hmBody"></tbody></table></div>
+    <div class="concl" id="c3"></div></section>
+ 
+  <section class="grid2">
+    <div class="panel"><div class="dg-no">Diagram 4</div><h2>Komposisi bidang (kategori digabung)</h2><p class="sub">22 kategori awal dikelompokkan menjadi bidang besar agar pola lebih mudah dibaca.</p><div class="donut-wrap" id="donut"></div><div class="concl" id="c4"></div></div>
+    <div class="panel"><div class="dg-no">Diagram 5</div><h2>Waffle chart: komposisi tingkat kesulitan</h2><p class="sub">100 kotak mewakili seluruh pertanyaan; setiap kotak setara <span id="waffleUnit"></span> pertanyaan.</p><div class="waffle-wrap" id="waffle"></div><div class="concl" id="c5"></div></div>
+  </section>
+ 
+  <section class="grid2">
+    <div class="panel"><div class="dg-no">Diagram 6</div><h2>Panjang jawaban menurut tingkat kesulitan</h2><p class="sub">Rata-rata jumlah kata pada kolom jawaban untuk tiap tingkat kesulitan.</p><div id="lenChart"></div><div class="concl" id="c6"></div></div>
+    <div class="panel"><div class="dg-no">Diagram 7</div><h2>Jenis kata tanya pada pertanyaan</h2><p class="sub">Kata pertama pertanyaan menunjukkan bentuk soal (penjelasan konsep atau tugas rancang/implementasi).</p><div id="qwChart"></div><div class="concl" id="c7"></div></div>
+  </section>
+ 
+  <section class="grid2" style="grid-template-columns:1fr">
+    <div class="panel"><div class="dg-no">Diagram 8</div><h2>Awan istilah teknis</h2><p class="sub">Istilah teknis yang paling sering disebut dalam pertanyaan dan jawaban. Ukuran huruf sebanding dengan jumlah baris yang memuatnya.</p><div class="cloud" id="cloud"></div><div class="concl" id="c8"></div></div>
+ 
+  </section>
+ 
+  <section class="panel section"><div class="dg-no">Diagram 9</div><h2>Audit kualitas data</h2><p class="sub">Pemeriksaan duplikasi, ketimpangan kategori, dan konsistensi label sebelum data dipakai untuk keperluan lanjutan.</p>
+    <div class="metrics" id="auditMetrics" style="margin:0 0 16px"></div>
+    <h2 style="font-size:14px">Pertanyaan yang muncul lebih dari satu kali</h2><p class="sub" style="margin-bottom:10px">Pertanyaan dianggap sama jika teksnya identik (huruf besar/kecil diabaikan).</p>
+    <div class="table-wrap dup-wrap"><table class="plain"><thead><tr><th>Pertanyaan</th><th class="c">Muncul</th><th>No. baris</th><th>Konsistensi label</th></tr></thead><tbody id="dupBody"></tbody></table></div>
+    <ul class="audit-list" id="overlapList"></ul>
+    <div class="concl" id="c10"></div></section>
+ 
   <section class="panel section"><div class="section-head"><div><h2>Data mentah</h2><p class="sub">Semua baris data sumber disertakan. Cari kata, filter kategori atau tingkat kesulitan, lalu ekspor hasil yang sedang ditampilkan.</p></div><span class="pill" id="recordCount"></span></div>
     <div class="controls"><input class="field" id="search" type="search" placeholder="⌕ Cari pertanyaan, jawaban, kategori..."><select class="field" id="categoryFilter"><option value="">Semua kategori</option></select><select class="field" id="difficultyFilter"><option value="">Semua tingkat kesulitan</option></select></div>
     <div class="table-wrap"><table><thead><tr><th>No.</th><th>Pertanyaan</th><th>Jawaban</th><th>Kategori</th><th>Tingkat Kesulitan</th></tr></thead><tbody id="rawTable"></tbody></table></div>
     <div class="table-foot"><span id="pageInfo"></span><div class="pages"><button id="prevBtn" type="button">← Sebelumnya</button><button id="nextBtn" type="button">Berikutnya →</button></div></div>
   </section>
+    <section class="panel section" id="flashSec"><div class="dg-no">Mode belajar</div><h2>Flashcard &amp; latihan mandiri</h2><p class="sub">Pilih kategori dan tingkat kesulitan, klik kartu untuk melihat jawaban, lalu tandai Paham atau Belum. Tombol set seimbang mengambil 20 soal dari semua bidang secara bergantian.</p>
+    <div class="flash-controls"><select class="field" id="fcCat"><option value="">Semua kategori</option></select><select class="field" id="fcDiff"><option value="">Semua tingkat kesulitan</option></select><button type="button" id="fcShuffle">⤮ Acak</button><button type="button" id="fcBalanced">☰ Set seimbang (20)</button></div>
+    <div class="flashcard" id="flashCard" tabindex="0" role="button" aria-label="Kartu: klik untuk membalik"></div>
+    <div class="flash-nav"><button type="button" id="fcPrev">← Sebelumnya</button><button type="button" id="fcFlip">⟲ Balik kartu</button><button type="button" id="fcNext">Berikutnya →</button><button type="button" class="btn-ok" id="fcOk">✓ Paham</button><button type="button" class="btn-no" id="fcNo">↻ Belum</button></div>
+    <div class="flash-stats" id="flashStats"></div>
+    <div class="concl" id="flashConcl"></div></section>
+ 
   <section class="panel section"><h2>Kesimpulan singkat</h2><p id="conclusion" style="line-height:1.7;margin-bottom:0"></p></section>
   <p class="footer">Dashboard dibuat dari file data pertanyaan perangkat lunak. Frekuensi dihitung berdasarkan data yang tersedia.</p>
 </div>
@@ -75,6 +140,184 @@ document.getElementById('prevBtn').addEventListener('click',()=>{page--;renderTa
 document.getElementById('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('dark');document.getElementById('themeBtn').textContent=document.body.classList.contains('dark')?'☀ Mode terang':'☾ Mode gelap';});
 document.getElementById('csvBtn').addEventListener('click',()=>{const data=getFiltered();const keys=fields;const csv=[keys,...data.map(r=>keys.map(k=>String(r[k]??'')))].map(line=>line.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='data_pertanyaan_terfilter.csv';a.click();URL.revokeObjectURL(url);});
 renderTable();
+/* ===== Analisis lanjutan ===== */
+const $ = id => document.getElementById(id);
+const DIFFS = ['Mudah','Menengah','Sulit'];
+const DCOL = {Mudah:'#26b99a',Menengah:'#7566ed',Sulit:'#f59e0b'};
+const PAL = ['#6759e8','#13b8a6','#f59e0b','#ef6b8a','#3b82f6','#8b5cf6','#84cc16','#94a3b8'];
+const sum = a => a.reduce((x,y)=>x+y,0);
+const pc = (n,d=total) => (d ? n/d*100 : 0).toLocaleString('id-ID',{maximumFractionDigits:1}) + '%';
+const concl = (id,html,label='Kesimpulan:') => { $(id).innerHTML = '<strong>'+label+'</strong> ' + html; };
+const E = escapeHTML;
+const mean = a => a.length ? sum(a)/a.length : 0;
+const median = a => { const s=[...a].sort((x,y)=>x-y), m=Math.floor(s.length/2); return s.length ? (s.length%2 ? s[m] : (s[m-1]+s[m])/2) : 0; };
+const dec = n => Number(n).toLocaleString('id-ID',{maximumFractionDigits:1});
+const shuffleArr = a => { for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+ 
+/* Pengelompokan kategori menjadi bidang besar */
+const BIDANG = {
+  'Dasar Pemrograman & Algoritma':['Pemrograman Umum','General Program','Struktur Data','Algoritma'],
+  'Web & Aplikasi':['Front-end','Back-end','Full-stack','Web Development','Languages and Frameworks'],
+  'Data & Basis Data':['Database and SQL','Sistem Basis Data','Rekayasa Data'],
+  'Arsitektur & Sistem':['Perancangan Sistem','Sistem Terdistribusi','Sistem Tingkat Rendah','Jaringan Komputer'],
+  'DevOps & Proses Rekayasa':['DevOps','Version Control','Software Testing'],
+  'Keamanan':['Keamanan'],
+  'AI & Pembelajaran Mesin':['Pembelajaran Mesin','Kecerdasan Buatan']
+};
+const catToField = {};
+Object.entries(BIDANG).forEach(([b,l]) => l.forEach(c => catToField[c] = b));
+const fieldOf = r => catToField[r[categoryKey]] || 'Lainnya';
+ 
+/* ---- Kesimpulan untuk diagram/tabel yang sudah ada ---- */
+const top3 = sortedCats.slice(0,3), top3n = sum(top3.map(x=>x[1]));
+const top10n = sum(sortedCats.slice(0,10).map(x=>x[1]));
+const small = sortedCats.filter(x=>x[1]<=3), smallN = sum(small.map(x=>x[1]));
+const big = sortedCats.filter(x=>x[1]>=10);
+concl('c1', `tiga kategori teratas (${top3.map(x=>E(x[0])).join(', ')}) menyumbang ${fmt(top3n)} pertanyaan atau ${pc(top3n)} dari seluruh data, dan 10 kategori teratas mencakup ${pc(top10n)}. Distribusinya timpang: sebagian besar soal bertumpu pada beberapa kategori praktik rekayasa, sedangkan ${small.length} kategori hanya berisi 1–3 pertanyaan.`);
+const mid = difficultyCounts['Menengah']||0, hard = difficultyCounts['Sulit']||0, easy = difficultyCounts['Mudah']||0;
+concl('insight', `${pc(mid+hard)} pertanyaan berada di level menengah–sulit, sedangkan level mudah hanya ${fmt(easy)} soal (${pc(easy)}). Kumpulan soal ini lebih cocok untuk latihan tingkat menengah ke atas, misalnya persiapan wawancara, dan kurang cocok sebagai bahan pengenalan bagi pemula.`);
+concl('c2', `${Object.keys(categoryCounts).length} kategori tercatat. ${big.length} kategori memiliki minimal 10 pertanyaan (cukup untuk dianalisis), sedangkan ${small.length} kategori berisi ${fmt(smallN)} pertanyaan saja (${pc(smallN)} data) sehingga persentasenya kurang andal. Beberapa nama kategori juga bertumpang tindih (lihat Diagram 4 dan Diagram 9).`);
+ 
+/* ---- Diagram 3: peta panas ---- */
+const xt = {};
+rows.forEach(r => { const c=r[categoryKey], d=r[difficultyKey]; (xt[c] = xt[c] || {Mudah:0,Menengah:0,Sulit:0})[d]++; });
+$('hmBody').innerHTML = sortedCats.map(([name,n]) => {
+  const x = xt[name];
+  const cells = DIFFS.map(d => { const v=x[d], share=v/n; return v
+    ? `<td class="c" style="background:color-mix(in srgb, ${DCOL[d]} ${Math.round(share*75)}%, transparent)">${fmt(v)}</td>`
+    : `<td class="c" style="color:var(--muted);font-weight:400">·</td>`; }).join('');
+  return `<tr><td>${E(name)}</td>${cells}<td class="c">${fmt(n)}</td><td class="c">${pc(x.Sulit,n)}</td></tr>`;
+}).join('');
+const allHard = sortedCats.filter(([n,t]) => xt[n].Sulit === t);
+const bigRank = big.map(([n,t]) => [n, xt[n].Sulit/t, t]).sort((a,b)=>b[1]-a[1]);
+const hi = bigRank[0], lo = bigRank[bigRank.length-1];
+const psHard = xt['Perancangan Sistem'] ? xt['Perancangan Sistem'].Sulit/xt['Perancangan Sistem'].Menengah : 0;
+concl('c3', `${allHard.length} kategori (${fmt(sum(allHard.map(x=>x[1])))} soal) seluruhnya berlevel Sulit, antara lain ${allHard.slice(0,4).map(x=>E(x[0])).join(', ')}. Di antara kategori besar (≥10 soal), ${E(hi[0])} paling berat (${pc(hi[1]*100,100)} sulit) dan ${E(lo[0])} paling ringan (${pc(lo[1]*100,100)} sulit). Tingkat kesulitan jelas tidak merata antarkategori: topik teori dan sistem tingkat lanjut didominasi soal sulit, sedangkan topik praktik harian didominasi soal menengah.`);
+ 
+/* ---- Diagram 4: donut bidang ---- */
+const fieldCounts = {};
+rows.forEach(r => { const f=fieldOf(r); fieldCounts[f]=(fieldCounts[f]||0)+1; });
+const fieldList = Object.entries(fieldCounts).sort((a,b)=>b[1]-a[1]);
+const R = 70, C = 2*Math.PI*R; let off = 0;
+const arcs = fieldList.map(([name,n],i) => { const len=n/total*C; const s=`<circle r="${R}" cx="100" cy="100" fill="none" stroke="${PAL[i%PAL.length]}" stroke-width="32" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" transform="rotate(-90 100 100)"><title>${E(name)}: ${n}</title></circle>`; off+=len; return s; }).join('');
+$('donut').innerHTML = `<svg viewBox="0 0 200 200" role="img" aria-label="Donut komposisi bidang">${arcs}<text x="100" y="98" text-anchor="middle" font-size="26" font-weight="800" fill="currentColor">${fmt(total)}</text><text x="100" y="118" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">pertanyaan</text></svg>`
+  + `<div class="legend">${fieldList.map(([name,n],i)=>`<div><span><i class="sw" style="background:${PAL[i%PAL.length]}"></i>${E(name)}</span><span>${fmt(n)} · ${pc(n)}</span></div>`).join('')}</div>`;
+const f1=fieldList[0], f2=fieldList[1], fl=fieldList[fieldList.length-1];
+concl('c4', `setelah ${Object.keys(categoryCounts).length} kategori digabung menjadi ${fieldList.length} bidang, <strong>${E(f1[0])}</strong> menjadi yang terbesar (${fmt(f1[1])} soal, ${pc(f1[1])}), disusul ${E(f2[0])} (${pc(f2[1])}). Bidang ${E(fl[0])} paling kecil (${fmt(fl[1])} soal, ${pc(fl[1])}) sehingga belum cukup mewakili topiknya. Penggabungan ini juga memperlihatkan bahwa banyak kategori awal sebenarnya satu bidang yang sama.`);
+ 
+/* ---- Diagram 5: waffle ---- */
+$('waffleUnit').textContent = dec(total/100);
+const raw = DIFFS.map(d => (difficultyCounts[d]||0)/total*100);
+const cellN = raw.map(Math.floor); let left = 100 - sum(cellN);
+raw.map((v,i)=>[v-Math.floor(v),i]).sort((a,b)=>b[0]-a[0]).slice(0,left).forEach(([,i])=>cellN[i]++);
+let wf = ''; DIFFS.forEach((d,i)=>{ for(let k=0;k<cellN[i];k++) wf += `<i style="background:${DCOL[d]}" title="${d}"></i>`; });
+$('waffle').innerHTML = `<div class="waffle">${wf}</div><div class="legend">${DIFFS.map((d,i)=>`<div><span><i class="sw" style="background:${DCOL[d]}"></i>${d}</span><span>${fmt(difficultyCounts[d]||0)} · ${pc(difficultyCounts[d]||0)}</span></div>`).join('')}</div>`;
+concl('c5', `dari 100 kotak, sekitar ${cellN[1]} berwarna menengah dan ${cellN[2]} sulit, sedangkan kotak mudah hanya ${pc(easy)} dari total. Soal sulit sekitar ${dec(hard/Math.max(1,easy))} kali lebih banyak daripada soal mudah, sehingga komposisi ini timpang ke level atas dan tidak memiliki jenjang pemanasan yang memadai.`);
+ 
+/* ---- Diagram 6: panjang jawaban ---- */
+const wc = t => (String(t).trim().match(/\S+/g)||[]).length;
+const lenBy = {}; DIFFS.forEach(d => lenBy[d] = rows.filter(r=>r[difficultyKey]===d).map(r=>wc(r[answerKey])));
+const lenMax = Math.max(1, ...DIFFS.map(d=>mean(lenBy[d])));
+$('lenChart').innerHTML = DIFFS.map(d => { const a=lenBy[d]; return `<div class="difficulty-item"><div class="diff-head"><strong>${d}</strong><span>rata-rata ${dec(mean(a))} kata <span class="lens-note">median ${dec(median(a))} · rentang ${Math.min(...a)}–${Math.max(...a)}</span></span></div><div class="diff-track"><div class="diff-fill" style="width:${mean(a)/lenMax*100}%;background:${DCOL[d]}"></div></div></div>`; }).join('');
+const allLen = rows.map(r=>wc(r[answerKey]));
+const mM = mean(lenBy.Menengah), mS = mean(lenBy.Sulit);
+concl('c6', `rata-rata jawaban hanya ${dec(mean(allLen))} kata (sekitar satu–dua kalimat). Jawaban soal Sulit rata-rata ${dec(mS)} kata, ${mS<mM?'lebih pendek':'lebih panjang'} daripada soal Menengah (${dec(mM)} kata), jadi panjang jawaban bukan penanda tingkat kesulitan. Jawaban bersifat ringkas, cocok sebagai kunci cepat tetapi belum cukup mendalam untuk topik sulit.`);
+ 
+/* ---- Diagram 7: jenis kata tanya ---- */
+const QFIX = {rancangn:'rancang',buatn:'buat',kembangkann:'kembangkan'};
+const qWord = r => { let w=(String(r[questionKey]).trim().split(/\s+/)[0]||'').replace(/[^\p{L}]/gu,'').toLowerCase(); w=QFIX[w]||w; return w ? w[0].toUpperCase()+w.slice(1) : '(kosong)'; };
+const qc = {}; rows.forEach(r => { const w=qWord(r); qc[w]=(qc[w]||0)+1; });
+const qList = Object.entries(qc).sort((a,b)=>b[1]-a[1]);
+const qTop = qList.slice(0,8), qRest = sum(qList.slice(8).map(x=>x[1]));
+const qShow = qRest ? [...qTop,['Lainnya',qRest]] : qTop;
+const qMax = Math.max(1,...qShow.map(x=>x[1]));
+$('qwChart').innerHTML = qShow.map(([n,v])=>`<div class="chart-row"><div class="chart-label">${E(n)}</div><div class="bar-bg"><div class="bar" style="width:${v/qMax*100}%"></div></div><div class="count">${fmt(v)}</div></div>`).join('');
+const CONCEPT = new Set(['Apa','Jelaskan','Bagaimana','Bisakah','Discuss','Mengapa','Explain','What','How']);
+const conceptN = sum(qList.filter(([n])=>CONCEPT.has(n)).map(x=>x[1])), practN = total-conceptN;
+concl('c7', `${fmt(conceptN)} pertanyaan (${pc(conceptN)}) berbentuk penjelasan konsep (Apa, Jelaskan, Bagaimana), sedangkan ${fmt(practN)} (${pc(practN)}) berupa tugas rancang atau implementasi. "${E(qList[0][0])}" dan "${E(qList[1][0])}" saja sudah menyumbang ${pc(qList[0][1]+qList[1][1])} data. Data ini lebih banyak menguji pemahaman teori daripada kemampuan praktik.`);
+ 
+/* ---- Diagram 8: awan istilah ---- */
+const TERMS = [
+  ['API',/\bapi\b/i],['REST',/\brest(ful)?\b/i],['Docker',/docker/i],['Kubernetes',/kubernetes/i],['CI/CD',/ci\/cd|continuous (integration|deployment|delivery)/i],
+  ['Microservices',/microservice/i],['SQL',/\bsql\b/i],['NoSQL',/nosql/i],['Cache',/cach/i],['Database',/database|basis data/i],['Git',/\bgit\b/i],
+  ['React',/\breact\b/i],['JavaScript',/javascript/i],['Python',/python/i],['Load balancer',/load.?balanc/i],['Skalabilitas',/scal|skala/i],
+  ['Keamanan',/secur|keamanan|enkripsi|encrypt|xss|csrf|injection/i],['Testing',/\btest|pengujian/i],['Cloud',/cloud/i],['Autentikasi',/authenticat|autentikasi|oauth|jwt/i],
+  ['Algoritma',/algorit/i],['OOP',/\boop\b|polimorf|enkapsulasi|pewarisan|inheritance/i],['Konkurensi',/concurren|thread|async|asinkron|race condition|deadlock/i],
+  ['Machine learning',/machine learning|pembelajaran mesin|neural/i],['HTTP',/\bhttps?\b/i],['Indexing',/index/i],['Design pattern',/design pattern|singleton|factory|observer|\bmvc\b/i],
+  ['Monitoring',/monitor|logging/i],['Infrastructure as Code',/infrastructure as code|\biac\b|terraform/i],['Memori',/memory|memori|garbage/i],['HTML/CSS',/\bcss\b|\bhtml\b/i],
+  ['Struktur data',/hash|\btree\b|pohon|graph|graf|linked list|stack|queue|array/i],['Sorting',/\bsort|pengurutan/i]
+];
+const termCounts = TERMS.map(([n,re]) => [n, rows.filter(r=>re.test(r[questionKey]+' '+r[answerKey])).length]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,26);
+const tMax = termCounts[0][1], tMin = termCounts[termCounts.length-1][1];
+$('cloud').innerHTML = termCounts.map(([n,v]) => { const sz = 13 + (tMax===tMin?0:(Math.sqrt(v)-Math.sqrt(tMin))/(Math.sqrt(tMax)-Math.sqrt(tMin))*22); return `<span style="font-size:${sz.toFixed(1)}px" title="${E(n)}: ${v} baris">${E(n)}</span>`; }).join('');
+const tt = termCounts.slice(0,3);
+const tc = n => (termCounts.find(x=>x[0]===n)||[n,0])[1];
+const top5 = termCounts.slice(0,5);
+concl('c8', `lima istilah teratas adalah ${top5.map(([n,v])=>`<strong>${E(n)}</strong> (${v} baris)`).join(', ')}. Artinya fokus soal ada pada skalabilitas sistem, dasar komputasi (algoritma dan struktur data), basis data, serta keamanan, sedangkan nama alat spesifik seperti Docker (${tc('Docker')} baris), React (${tc('React')}), dan Git (${tc('Git')}) jarang disebut langsung. Istilah dihitung dari daftar kata kunci yang dipilih, bukan seluruh kosakata.`);
+ 
+/* Perkiraan pertanyaan berbahasa campuran (dipakai pada audit) */
+const ENW = new Set('the a an in of to and is are how does do what why for with from vs versus compared between using use on at by its it their can you your or as that this be which when into more than'.split(' '));
+const enCount = t => (String(t).toLowerCase().match(/[a-z']+/g)||[]).filter(w=>ENW.has(w)).length;
+const mixQ = rows.filter(r=>enCount(r[questionKey])>=1).length;
+ 
+/* ---- Diagram 9: audit ---- */
+const norm = s => String(s).toLowerCase().replace(/\s+/g,' ').trim();
+const groups = {}; rows.forEach(r => (groups[norm(r[questionKey])] = groups[norm(r[questionKey])] || []).push(r));
+const dupGroups = Object.values(groups).filter(g=>g.length>1).sort((a,b)=>b.length-a.length);
+const unique = Object.keys(groups).length, dupRows = total - unique;
+const inconsistent = dupGroups.filter(g => new Set(g.map(r=>r[categoryKey]+'|'+r[difficultyKey])).size > 1).length;
+$('auditMetrics').innerHTML = [
+  ['Baris duplikat',fmt(dupRows),pc(dupRows)+' dari seluruh data'],
+  ['Pertanyaan unik',fmt(unique),'dari '+fmt(total)+' baris'],
+  ['Kategori ≤3 soal',fmt(small.length),fmt(smallN)+' pertanyaan'],
+  ['Pertanyaan campuran bahasa',fmt(mixQ),pc(mixQ)+' dari pertanyaan']
+].map(x=>`<div class="metric"><small>${x[0]}</small><strong>${x[1]}</strong><span>${x[2]}</span></div>`).join('');
+$('dupBody').innerHTML = dupGroups.map(g => { const labels=[...new Set(g.map(r=>r[categoryKey]+' / '+r[difficultyKey]))]; return `<tr><td style="min-width:260px">${E(g[0][questionKey])}</td><td class="c">${g.length}×</td><td>${g.map(r=>E(r[noKey])).join(', ')}</td><td>${labels.length===1?'<span class="pill">Konsisten</span>':'<span class="pill difficulty">Berbeda: '+labels.map(E).join(' | ')+'</span>'}</td></tr>`; }).join('') || '<tr><td colspan="4" class="empty">Tidak ada duplikat.</td></tr>';
+const OVER = [['Pemrograman Umum','General Program'],['Database and SQL','Sistem Basis Data'],['Pembelajaran Mesin','Kecerdasan Buatan']].filter(p=>p.every(c=>c in categoryCounts));
+$('overlapList').innerHTML = OVER.map(p=>`<li>Kategori <strong>${E(p[0])}</strong> dan <strong>${E(p[1])}</strong> tampak berbicara tentang topik yang sama.</li>`).join('')
+  + `<li>Kategori <strong>Front-end</strong>, <strong>Back-end</strong>, <strong>Full-stack</strong>, <strong>Web Development</strong>, dan <strong>Languages and Frameworks</strong> saling beririsan.</li><li>Nama kategori bercampur bahasa Indonesia dan Inggris (mis. "Software Testing" dengan "Pembelajaran Mesin").</li>`;
+concl('c10', `${fmt(dupRows)} baris (${pc(dupRows)}) adalah pengulangan sehingga hanya ada ${fmt(unique)} pertanyaan unik; ${fmt(inconsistent)} dari ${fmt(dupGroups.length)} kelompok duplikat bahkan memiliki label kategori atau kesulitan yang berbeda. Duplikasi membuat frekuensi kategori membengkak, ${small.length} kategori terlalu tipis, dan soal Mudah sangat sedikit. Data sebaiknya dibersihkan dan diseimbangkan sebelum dipakai untuk analisis atau ujian.`);
+ 
+/* ---- Mode belajar: flashcard ---- */
+const fcCat=$('fcCat'), fcDiff=$('fcDiff');
+Object.keys(categoryCounts).sort((a,b)=>a.localeCompare(b,'id')).forEach(c=>fcCat.add(new Option(c,c)));
+Object.keys(difficultyCounts).sort((a,b)=>a.localeCompare(b,'id')).forEach(d=>fcDiff.add(new Option(d,d)));
+let deck=[], di=0, flip=false; const grade={};
+function setDeck(list){ deck=list; di=0; flip=false; drawFlash(); }
+function filterDeck(shuf){ let l=rows.filter(r=>(!fcCat.value||r[categoryKey]===fcCat.value)&&(!fcDiff.value||r[difficultyKey]===fcDiff.value)); if(shuf) shuffleArr(l); setDeck(l); }
+function balancedSet(n){ const g={}; rows.forEach(r=>(g[fieldOf(r)]=g[fieldOf(r)]||[]).push(r)); Object.values(g).forEach(shuffleArr); const keys=Object.keys(g), out=[]; let i=0; while(out.length<n && keys.some(k=>g[k].length)){ const k=keys[i%keys.length]; if(g[k].length) out.push(g[k].pop()); i++; } return shuffleArr(out); }
+function drawFlash(){
+  const card=$('flashCard');
+  if(!deck.length){ card.className='flashcard'; card.innerHTML='<div class="empty">Tidak ada kartu untuk filter ini.</div>'; $('flashStats').innerHTML=''; concl('flashConcl','ubah filter kategori atau tingkat kesulitan untuk menampilkan kartu.','Kesimpulan sesi:'); return; }
+  const r=deck[di], g=grade[r[noKey]];
+  card.className='flashcard'+(flip?' back':'');
+  card.innerHTML = flip
+    ? `<div class="fl-tag">Jawaban</div><div class="fl-text">${E(r[answerKey])}</div>${g?`<div class="fl-hint">Penilaian Anda: ${g==='ok'?'Paham':'Belum'}</div>`:''}`
+    : `<div class="fl-meta"><span class="pill">${E(r[categoryKey])}</span><span class="pill difficulty">${E(r[difficultyKey])}</span></div><div class="fl-text q">${E(r[questionKey])}</div><div class="fl-hint">Klik kartu untuk melihat jawaban</div>`;
+  const ok=deck.filter(x=>grade[x[noKey]]==='ok').length, no=deck.filter(x=>grade[x[noKey]]==='no').length, done=ok+no;
+  $('flashStats').innerHTML = `Kartu ${fmt(di+1)} dari ${fmt(deck.length)} · Paham ${fmt(ok)} · Belum ${fmt(no)}<div class="progress"><div style="width:${done/deck.length*100}%"></div></div>`;
+  if(!done){ concl('flashConcl','belum ada kartu yang dinilai. Balik kartu, lalu tandai <em>Paham</em> atau <em>Belum</em>; ringkasan sesi akan muncul di sini.','Kesimpulan sesi:'); }
+  else {
+    const weak={}; deck.forEach(x=>{ if(grade[x[noKey]]==='no') weak[x[categoryKey]]=(weak[x[categoryKey]]||0)+1; });
+    const wl=Object.entries(weak).sort((a,b)=>b[1]-a[1]);
+    concl('flashConcl', `dari ${fmt(done)} kartu yang dinilai, ${fmt(ok)} dipahami (${pc(ok,done)}) dan ${fmt(no)} perlu diulang. ${wl.length?'Kategori yang paling perlu diulang: <strong>'+E(wl[0][0])+'</strong> ('+wl[0][1]+' kartu).':'Semua kartu yang dinilai sudah dipahami.'}`,'Kesimpulan sesi:');
+  }
+}
+const flipCard=()=>{ if(!deck.length) return; flip=!flip; drawFlash(); };
+const go=d=>{ if(!deck.length) return; di=(di+d+deck.length)%deck.length; flip=false; drawFlash(); };
+const rate=v=>{ if(!deck.length) return; grade[deck[di][noKey]]=v; if(di<deck.length-1){ di++; } flip=false; drawFlash(); };
+$('flashCard').addEventListener('click',flipCard);
+$('flashCard').addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flipCard(); } else if(e.key==='ArrowRight') go(1); else if(e.key==='ArrowLeft') go(-1); });
+$('fcFlip').addEventListener('click',flipCard); $('fcPrev').addEventListener('click',()=>go(-1)); $('fcNext').addEventListener('click',()=>go(1));
+$('fcOk').addEventListener('click',()=>rate('ok')); $('fcNo').addEventListener('click',()=>rate('no'));
+fcCat.addEventListener('change',()=>filterDeck(false)); fcDiff.addEventListener('change',()=>filterDeck(false));
+$('fcShuffle').addEventListener('click',()=>filterDeck(true));
+$('fcBalanced').addEventListener('click',()=>{ fcCat.value=''; fcDiff.value=''; setDeck(balancedSet(20)); });
+filterDeck(true);
+ 
+/* ---- Kesimpulan akhir (diperluas) ---- */
+$('conclusion').insertAdjacentHTML('afterend', `<ul style="line-height:1.7;margin:12px 0 0;padding-left:20px"><li><strong>Sebaran:</strong> bidang terbesar adalah ${E(f1[0])} (${pc(f1[1])}); ${small.length} kategori sangat tipis (≤3 soal).</li><li><strong>Kesulitan:</strong> ${pc(mid+hard)} soal berlevel menengah–sulit, dan ${E(allHard.length+'')} kategori seluruhnya sulit.</li><li><strong>Bentuk soal:</strong> ${pc(conceptN)} berupa penjelasan konsep; jawaban rata-rata ${dec(mean(allLen))} kata.</li><li><strong>Kualitas data:</strong> ${fmt(dupRows)} baris duplikat, ${pc(mixQ)} pertanyaan berbahasa campuran, dan beberapa kategori saling tumpang tindih.</li></ul>`);
+ 
 </script>
 </body>
 </html>
